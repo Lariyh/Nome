@@ -1,0 +1,141 @@
+<html>
+    <head>
+        <title>Para meu amour</title>
+        <style>
+
+            :root { 
+                --color-1:#191cc0;
+                --color-2:#1196e4;
+                --color-3:rgb(27, 23, 240);
+                --color-4:#f8e80d;
+            }
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background: var(--color-1);
+                background: linear-gradient(45deg, var(--color-1) 0%, var(--color-2) 50%, var(--color-3) 75%, var(--color-4) 100%);
+                background-size: 400% 400%;
+                animation: rainbow 1s linear infinite;
+                height: 100vh;
+                overflow: hidden;
+
+            }
+
+            a{
+                text-decoration: none;
+            }
+
+            .box{
+                font-size: 20px;
+                color: aliceblue;
+                height: 250px;
+                width: 350px;
+                border-radius: 10px;
+                background: #191919;
+                flex-direction: column;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                }
+
+                .buttons-container{
+                    display: flex;
+                    justify-content: space-around;
+                    height: 50px;
+                    width: 150px;
+                    position: fixed;
+                    
+                }
+
+                button{
+                    padding: 5px 20px;
+                    background: white;
+                    border-radius: 5px;
+                    color: #222;
+                    font-weight: 600;
+                    transition: .5s ease-in;
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                }
+
+                #no{
+                    transition:all .1s ease-in;
+
+                }
+            .message {
+                position: absolute;
+                top: 200px;
+                left: 50%;
+                transform: translateX(-50%);
+                visibility: hidden;
+                opacity: 0;
+                transition: opacity 2s ease-out;
+                width: 100vw;
+                text-align: center;
+            }
+            .message h1 {
+                font-size: 4rem;
+                color: white;
+                font-family: sans-serif;
+            }
+            .message.active {
+                visibility: visible;
+                opacity: 1;
+            }
+
+                @keyframes rainbow {
+                    
+                    0% {
+        background-position: 100% 0%
+    }
+    50% {
+        background-position: 0% 100%
+    }
+    100% {
+        background-position: 100% 0%
+    }
+
+                }
+
+                
+
+        </style>
+    </head>
+
+    <body>
+        <div class="message">
+            <h1>VOCÊ NÃO TEM ESCOLHA!</h1>
+        </div>
+        <div class="box">
+            <p>Fica comigo para todo o sempre??? &#128151;</p>
+                <div class="button-container">  
+                    <button id="sim">
+                        <a href="https://youtu.be/D0f3DPjxnlM?si=KQdGQ3Gr3T83M3IJ" target="__blank">sim</a>
+                    </button>
+                    <button id="no">não</button>
+                </div>
+            </div>
+        </body>
+        <script>
+            let button = document.getElementById('no');
+            let buttonSim = document.getElementById('sim');
+            let height = window.innerHeight -50;
+            let width = window.innerWidth -50;
+
+            let counter = 0
+            const message = document.querySelector(".message")
+
+            button.addEventListener('mouseover' , function(){
+                button.style.position = "absolute";
+                button.style.top = Math.random() *height +"px";
+                button.style.left = Math.random() *width +"px";
+                counter++
+                if(counter >= 5){
+                    button.style.display = "none"
+                    message.classList.add("active")
+                }
+            })
+        </script>
+    </html>
